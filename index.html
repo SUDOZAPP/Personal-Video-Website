@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="/pvw.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/pvw-icon-180.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Personal Video Website" />
+    <meta name="theme-color" content="#f5f5f7" />
+    <meta name="description" content="Personal Video Website — 私人影片庫" />
+    <title>Personal Video Website</title>
+    <!--
+      在 React 挂载前，从 localStorage 同步上次保存的主题，立刻设到 <html data-theme>，
+      避免"先黑后粉"的闪烁。真实的服务端值会在 main.tsx 启动时异步对齐。
+    -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("video-site:theme");
+          if (t === "pink" || t === "dark" || t === "sky") {
+            document.documentElement.setAttribute("data-theme", t);
+          } else {
+            document.documentElement.setAttribute("data-theme", "pink");
+          }
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "pink");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
