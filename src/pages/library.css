@@ -1,0 +1,7 @@
+.library-page h1 { font-size: 1.6rem; margin-bottom: 12px; }
+.library-page > p { color: var(--text-muted, #aaa); line-height: 1.7; margin-bottom: 20px; }
+.library-page > div > button { border: 1px solid var(--border-color, #42424b); border-radius: 8px; padding: 10px 14px; background: var(--panel-bg, #222228); color: inherit; cursor: pointer; font: inherit; }
+.library-page > div > button[aria-pressed="true"] { border-color: #c85371; background: #713147; color: #fff; }
+.library-page > div > button:disabled { opacity: .4; cursor: default; }
+.library-page > div { align-items: center; flex-wrap: wrap; }
+.library-page .library-page__empty { padding: 32px 20px; border: 1px solid var(--border-color, #34343d); border-radius: 12px; }
